@@ -1,1 +1,2 @@
-algoritma ve veri yapıları
+#kodluyoruz ilk repo
+kodluyoruz eğitimi kapsamında açtığım ilk repo
