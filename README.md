@@ -1,36 +1,37 @@
-Selection Sort
+Merge Sort
 
-What is the Selection Sort?
+What is the Merge Sort?
 
-This sorting method utilizes in-place comparison and has a time complexity of O(n2), making it inefficient for sorting large lists. 
-The Selection sort algorithm works by dividing a list into two parts: the sorted part, located at the left end, and the unsorted part, located at the right end. Initially, the sorted part is empty and the unsorted part is the entire list. The algorithm selects the smallest element from the unsorted part and replaces it with the first element of the sorted part. This process is repeated until the entire list is sorted. 
+Merge sort is a popular sorting algorithm that works by dividing the input list into smaller lists, sorting them recursively, and then merging them back together to produce a sorted list. 
+It is a "divide and conquer" algorithm that can handle large data sets efficiently, with a time complexity of O(n log n). 
 
-Sort this series according to selection sort algorithm. -> [22,27,16,2,18,6]
+Sort this series according to Merge Sort algorithm. -> [16,21,11,8,12,22]
 
-After examining all other numbers on the list, the smallest number, which is currently 2, is selected and replaced with 22.
+Divide the list into two halves recursively until each sublist contains only one element.
 
-[2,27,16,22,18,6] -> n comparisons
-In the next step, we select the smallest number from the unsorted section, which is currently 6, and replace it with 27.
+Divide the list into two halves:
 
-[2,6,16,22,18,27] -> (n-1) comparisons
-In step 3, we search for the smallest number in the unsorted section. However, since the number is already at the top of the unsorted section, there is no need to make any changes to the list. This number is then included in the sorted portion.
+[16,21,11,8,12,22] -> [16,21,11] - [8,12,22]
+Divide the left and right halves recursively:
 
-[2,6,16,22,18,27] -> (n-2) comparisons
-In step 4, the smallest number is 18, so we replace it with 22.
+[16,21,11] -> [16] - [21,11]
+[8,12,22] -> [8] - [12,22]
+It is divided until it contains only one item.:
 
-[2,6,16,18,22,27] -> (n-3) comparisons
-Next, we search for the smallest number again, which is 22, but we do not move it since it is already in the correct position.
+[21,11] -> [21] - [11]
+[12,22] -> [12] - [22]
+[16] - [21] - [11] - [8] - [12] - [22]
 
-[2,6,16,18,22,27] -> (n-4) comparisons
-Finally, we arrive at the last number, which is 27. Although its position is already correct, a comparison is still made to confirm this.
+Sort each sublist using the same merge sort algorithm recursively until each sublist is sorted.
 
-[2,6,16,18,22,27] -> 1 comparisons
-All Comparison = (n-1) + (n-2) + ... + 1 = n(n-1)/2 
-This formula is expressed as O(n2) because as n grows, the number of steps becomes proportional to n2.
+Sort each half:
+[21] - [11] -> [11,21]
+[12] - [22] -> [12,22]
+Sort the left and right halves recursively:
+[16] - [11,21] -> [11,16,21]
+[8] - [12,22] -> [8,12,22]
+[11,16,21] - [8,12,22]
+Merge the two sorted sublists back together to form a single sorted list.
 
-The first 4 steps according to Selection Sort of the series -> [7,3,5,8,2,9,4,15,6]
-
-[2,3,5,8,7,9,4,15,6]
-[2,3,5,8,7,9,4,15,6]
-[2,3,4,8,7,9,5,15,6]
-[2,3,4,5,7,9,8,15,6]
+Merge the two halves:
+[8, 11, 12, 16, 21, 22]
